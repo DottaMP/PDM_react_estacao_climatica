@@ -8,6 +8,7 @@ import '@fortawesome/fontawesome-free/css/all.css'
 class App extends React.Component{
     constructor(props){
         super(props)
+        console.log('construtor')
         this.state = {
         latitude: null,
         longitude: null,
@@ -71,8 +72,21 @@ class App extends React.Component{
         )//opera de maneira assincrona.
     }
     
+    componentDidMount(){
+        console.log('componentDidMount')
+    }    
+    
+    componentDidUpdate (){
+        console.log('componentDidUpdate')
+    }
+
+    componentWillUnmount (){
+        console.log('componentWillUnmount')    
+    }
+
     //Definirá um método chamado render. Ele é responsável por produzir a expressãoJSX de interesse
     render(){
+        console.log("render")
         return (
             <div className='container mt-2'>
                 <div className="row justify-content-center">
@@ -101,6 +115,12 @@ class App extends React.Component{
                                 <button onClick={this.obterLocalizacao} className="btn btn-outline-primary w-100 mt-2">
                                     Qual a minha Estação?
                                 </button>
+
+                                {/*método componentWillUnmount somente é colocado em execução quando umcomponente é 
+                                removido do DOM. O botão abaixo tem o intuito apenas de simular o seu funcionamento.
+                                <button  className="btn btn-outline-danger w-100 mt-2" 
+                                    onClick={() => ReactDOM.unmountComponentAtNode(document.querySelector('#root'))}>Perigo!
+                                </button>*/}
                             </div>
                         </div>
                     </div>
